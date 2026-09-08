@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "purpose": "团队部门最终决策账本（决策级回测）",
+    "rule": "每个最终决定：日期 + 标的 + 方向(BUY/SELL/HOLD/AVOID/CASH) + 参考价 + 止损/目标 + 来源；核验 T+1/T+3/T+5 与止损触发。",
+    "note": "本文件为脱敏示例，展示账本结构；实际数据不含个人账户信息。"
+  },
+  "decisions": [
+    {
+      "id": "D001",
+      "date": "2026-08-12",
+      "code": "000001",
+      "name": "示例标的A",
+      "action": "BUY",
+      "ref_px": 31.31,
+      "stop": null,
+      "hold_days": 5,
+      "status": "closed",
+      "source": "示例：回测窗口内记录",
+      "note": "示例条目"
+    },
+    {
+      "id": "D002",
+      "date": "2026-08-13",
+      "code": "000002",
+      "name": "示例标的B",
+      "action": "AVOID",
+      "ref_px": 13.16,
+      "stop": null,
+      "hold_days": 5,
+      "status": "closed",
+      "source": "示例：回测窗口内记录",
+      "note": "示例条目：回避后 5 日下跌，判定正确"
+    },
+    {
+      "id": "D003",
+      "date": "2026-09-04",
+      "code": "000003",
+      "name": "示例标的C",
+      "action": "HOLD",
+      "ref_px": 19.21,
+      "stop": 18.5,
+      "hold_days": 5,
+      "status": "open",
+      "source": "示例：持仓核验条目",
+      "note": "示例条目：未破止损，等待 T+3/T+5 核验"
+    }
+  ]
+}
